@@ -38,7 +38,7 @@ class Tree {
         }
     }
 
-    // Inserts the given value using iteration over the binary tree
+    // Inserts the given value using Iteration over the binary tree
     insert(value) {
 
         if (this.#root === null) {
@@ -70,7 +70,74 @@ class Tree {
         
     }
 
-    
+    // Deletes the given value from the BTS using Iteration and reorganizes the BTS
+    deleteItem(value) {
+        let currentNode = this.#root;
+        let parentNode = null;
+
+        while (currentNode != null && currentNode.value != value) {
+            parentNode = currentNode;
+        
+            if (value < currentNode.value) {
+                currentNode = currentNode.leftChild;
+            }
+            else {
+                currentNode = currentNode.rightChild;
+            }
+        }
+
+        if (currentNode === null) return null;
+
+        // Case 1: Node is a leaf (no children)
+        if (currentNode.leftChild === null && currentNode.rightChild === null) {
+            if (currentNode === this.#root) this.#root = null;
+            else if (parentNode.leftChild === currentNode) {
+                parentNode.leftChild = null;
+            }
+            else parentNode.rightChild = null;
+        }
+
+        // Case 2: Node to delete has only one child
+        else if (currentNode.leftChild === null || currentNode.rightChild === null) {
+            if (currentNode.leftChild != null) {
+                let child = currentNode.leftChild;
+            }
+            else {
+                let child = currentNode.rightChild;
+            }
+
+            if (currentNode === this.#root) this.#root = child;
+            else if (parentNode.leftChild === currentNode) {
+                parentNode.leftChild = child;
+            }
+            else parentNode.rightChild = child;
+        }
+
+        // Case 3: Node to delete has two children
+        else {
+            // Find the smallest node in the right subtree (in-order successor)
+            let successorParent = currentNode;
+            let successor = currentNode.rightChild;
+
+            // Find the smallest node (leftmost)
+            while (successor.leftChild != null) {
+                successorParent = successor;
+                successor = successor.leftChild;
+            }
+
+            // Replace the current node's value with the successor's value
+            currentNode.value = successor.value;
+
+            // Delete the in-order successor
+            if (successorParent.leftChild === successor) {
+                successorParent.leftChild = successor.rightChild;
+            }
+            else {
+                successorParent.rightChild = successor.rightChild; // In case the successor had a rightChild
+            }
+        }
+ 
+    }
 }
 
 export { Tree };
