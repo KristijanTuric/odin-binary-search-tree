@@ -22,7 +22,7 @@ class Tree {
     }
 
     // Prints the binary tree in the console
-    prettyPrint(node, prefix = "", isLeft = true) {
+    prettyPrint(node = this.#root, prefix = "", isLeft = true) {
         if (node === null) {
             return;
         }
