@@ -9,3 +9,4 @@
 - [x] `prettyPrint(root)` -> takes the root of the tree and prints a formated tree in the console
 - [x] `insert(value)` -> inserts the given value in the BTS
 - [x] `deleteItem(value)` -> deletes the given value from the BTS and reorganizes the tree structure
+- [x] `find(value)` -> returns the `Node` with the given value

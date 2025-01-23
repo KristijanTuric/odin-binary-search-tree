@@ -138,6 +138,25 @@ class Tree {
         }
  
     }
+
+    // Returns the Node with the given value
+    find(value) {
+        let currentNode = this.#root;
+        
+        while (currentNode != null) {
+            if (currentNode.value === value) {
+                return currentNode;
+            }
+            else if (value < currentNode.value) {
+                currentNode = currentNode.leftChild;
+            }
+            else {
+                currentNode = currentNode.rightChild;
+            }
+        }
+
+        return null;
+    }
 }
 
 export { Tree };
