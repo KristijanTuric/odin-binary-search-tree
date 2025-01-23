@@ -188,6 +188,63 @@ class Tree {
             }
         }
     }
+
+    // BST depth-first search travesal in order left subtree -> root -> right subtree
+    inOrder(callback) {
+        if (typeof(callback) != 'function') {
+            throw new Error("A callback function is required!");
+        }
+
+        let currentNode = this.#root;
+        
+        function traverse(node) {
+            if (node != null) {
+                traverse(node.leftChild);
+                callback(node);
+                traverse(node.rightChild);
+            }
+        }
+
+        traverse(currentNode);
+    }
+
+    // BST depth-first search travesal in order root -> left subtree -> right subtree
+    preOrder(callback) {
+        if (typeof(callback) != 'function') {
+            throw new Error("A callback function is required!");
+        }
+
+        let currentNode = this.#root;
+        
+        function traverse(node) {
+            if (node != null) {
+                callback(node);
+                traverse(node.leftChild);
+                traverse(node.rightChild);
+            }
+        }
+
+        traverse(currentNode);
+    }
+
+    // BST depth-first search travesal in order left subtree -> right subtree -> root
+    postOrder(callback) {
+        if (typeof(callback) != 'function') {
+            throw new Error("A callback function is required!");
+        }
+
+        let currentNode = this.#root;
+        
+        function traverse(node) {
+            if (node != null) {
+                traverse(node.leftChild);
+                traverse(node.rightChild);
+                callback(node);
+            }
+        }
+
+        traverse(currentNode);
+    }
 }
 
 export { Tree };

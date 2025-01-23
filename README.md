@@ -11,3 +11,6 @@
 - [x] `deleteItem(value)` -> deletes the given value from the BST and reorganizes the tree structure
 - [x] `find(value)` -> returns the `Node` with the given value
 - [x] `levelOrder(callback)` -> breadth-first BST travesal using Iteration
+- [x] `inOrder(callback)` -> BST depth-first search travesal in order left subtree -> root -> right subtree
+- [x] `preOrder(callback)` -> BST depth-first search travesal in order root -> left subtree -> right subtree
+- [x] `postOrder(callback)` -> BST depth-first search travesal in order left subtree -> right subtree -> root
