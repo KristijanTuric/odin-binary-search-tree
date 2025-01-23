@@ -70,7 +70,7 @@ class Tree {
         
     }
 
-    // Deletes the given value from the BTS using Iteration and reorganizes the BTS
+    // Deletes the given value from the BST using Iteration and reorganizes the BST
     deleteItem(value) {
         let currentNode = this.#root;
         let parentNode = null;
@@ -142,7 +142,7 @@ class Tree {
     // Returns the Node with the given value
     find(value) {
         let currentNode = this.#root;
-        
+
         while (currentNode != null) {
             if (currentNode.value === value) {
                 return currentNode;
@@ -156,6 +156,37 @@ class Tree {
         }
 
         return null;
+    }
+
+    // Breadth-first BST travesal using Iteration
+    levelOrder(callback) {
+
+        if (typeof(callback) !== 'function') {
+            throw Error("A callback function is required");
+        }
+
+        if (this.#root === null) {
+            throw Error("The Tree is empty!");
+        }
+
+        let currentNode = null;
+        let queue = [];
+
+        queue.push(this.#root);
+
+        while (queue.length != 0) {
+            currentNode = queue.shift();
+
+            callback(currentNode);
+
+            if (currentNode.leftChild != null) {
+                queue.push(currentNode.leftChild);
+            }
+
+            if (currentNode.rightChild != null) {
+                queue.push(currentNode.rightChild);
+            }
+        }
     }
 }
 
