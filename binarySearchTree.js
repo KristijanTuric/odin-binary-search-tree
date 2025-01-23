@@ -38,6 +38,38 @@ class Tree {
         }
     }
 
+    // Inserts the given value using iteration over the binary tree
+    insert(value) {
+
+        if (this.#root === null) {
+            return new Node(value);
+        }
+
+        let currentNode = this.#root;
+
+        while (true) {
+            if (value <= currentNode.value) {
+                if (currentNode.leftChild === null) {
+                    currentNode.leftChild = new Node(value);
+                    return;
+                }
+                else {
+                    currentNode = currentNode.leftChild;
+                }
+            }
+            else {
+                if (currentNode.rightChild === null) {
+                    currentNode.rightChild = new Node(value);
+                    return;
+                }
+                else {
+                    currentNode = currentNode.rightChild;
+                }
+            }
+        }
+        
+    }
+
     
 }
 

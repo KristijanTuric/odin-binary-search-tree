@@ -7,3 +7,4 @@
 - The binary tree functions:
 - [x] `buildTree(array)` -> takes a sorted array without duplicates and returns the root node of the BTS
 - [x] `prettyPrint(root)` -> takes the root of the tree and prints a formated tree in the console
+- [x] `insert(value)` -> inserts the given value in the BTS
