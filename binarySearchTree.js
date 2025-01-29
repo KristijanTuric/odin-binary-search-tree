@@ -245,6 +245,17 @@ class Tree {
 
         traverse(currentNode);
     }
+
+    // Returns the number of edges in the longest path from a given node to a leaf node
+    height(node) {
+        if (!node) return -1;
+        if (node.leftChild == null && node.rightChild === null) return 0;
+        
+        let leftHeight = this.height(node.leftChild);
+        let rightHeight = this.height(node.rightChild);
+
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
 }
 
 export { Tree };

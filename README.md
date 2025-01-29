@@ -14,3 +14,4 @@
 - [x] `inOrder(callback)` -> BST depth-first search travesal in order left subtree -> root -> right subtree
 - [x] `preOrder(callback)` -> BST depth-first search travesal in order root -> left subtree -> right subtree
 - [x] `postOrder(callback)` -> BST depth-first search travesal in order left subtree -> right subtree -> root
+- [x] `height(node)` -> returns the number of edges in the longest path from a given node to a leaf node
