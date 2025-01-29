@@ -256,6 +256,27 @@ class Tree {
 
         return 1 + Math.max(leftHeight, rightHeight);
     }
+
+    // Returns the number of edges in the path from a given node to the tree's root node
+    depth(node) {
+        if (node === null) return -1;
+        let depth = 0;
+        let currentNode = this.#root;
+
+        while (currentNode !== node) {
+            // Search on the left side
+            if (node.value < currentNode.value) {
+                currentNode = currentNode.leftChild;
+                depth += 1;
+            }
+            // Search on the right side
+            else {
+                currentNode = currentNode.rightChild;
+                depth += 1;
+            }
+        }
+        return depth;
+    }
 }
 
 export { Tree };
