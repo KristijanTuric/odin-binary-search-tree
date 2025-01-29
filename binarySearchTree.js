@@ -277,6 +277,23 @@ class Tree {
         }
         return depth;
     }
+
+    // returns true if the tree is balanced
+    isBalanced() {
+        let isBalanced = true;
+
+        this.levelOrder((node) => {
+            let leftHeight = this.height(node.leftChild);
+            let rightHeight = this.height(node.rightChild);
+
+            if (Math.abs(leftHeight - rightHeight) > 1) {
+                isBalanced = false;
+                return;
+            }
+        });
+
+        return isBalanced;
+    }
 }
 
 export { Tree };

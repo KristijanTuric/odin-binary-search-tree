@@ -16,3 +16,4 @@
 - [x] `postOrder(callback)` -> BST depth-first search travesal in order left subtree -> right subtree -> root
 - [x] `height(node)` -> returns the number of edges in the longest path from a given node to a leaf node
 - [x] `depth(node)` -> returns the number of edges in the path from a given node to the tree's root node
+- [x] `isBalanced()` -> checks if the tree is balanced, a balanced tree is one where the difference between heights of the left subtree and the right subtree of every node is not more than 1
