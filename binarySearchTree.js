@@ -294,6 +294,18 @@ class Tree {
 
         return isBalanced;
     }
+
+    // Rebalances an unbalanced tree
+    rebalance() {
+        if (this.isBalanced()) return;
+
+        let sortedNodeValues = [];
+        this.inOrder((node) => {
+            sortedNodeValues.push(node.value);
+        });
+
+        this.#root = this.buildTree(sortedNodeValues);
+    }
 }
 
 export { Tree };
