@@ -48,7 +48,8 @@ class Tree {
         let currentNode = this.#root;
 
         while (true) {
-            if (value <= currentNode.value) {
+            if (value === currentNode.value) return;
+            if (value < currentNode.value) {
                 if (currentNode.leftChild === null) {
                     currentNode.leftChild = new Node(value);
                     return;
